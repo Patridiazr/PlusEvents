@@ -13,3 +13,35 @@ header {
 	width:100%;
 }
 
+/* CARRUSEL*/
+.center-crop{
+  max-height: 400px;
+  min-height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+SECTION DERECHA
+section #web-right {
+  height: auto;
+  padding:50px;
+}
+/* SECTION DERECHA */
+#web-right .col-md-12 {
+float: right;
+width: 40%;
+padding:20px;
+margin: 50px;
+} 
+
+/* SECTION IZQUIERDA */
+section #web-left {
+height: auto;
+padding:50px;
+}
+/* SECTION IZQUIERDA */
+#web-left .col-md-12 {
+float: left;
+width: 40%;
+padding:20px;
+margin: 50px;
+} 
