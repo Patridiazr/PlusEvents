@@ -14,16 +14,15 @@ header {
 }
 /* NAVBAR */
 .plus-navbar{
-  background-color: #333 !important;
+  background-color: #9242f4 !important;
 }
 /* CARRUSEL*/
 .center-crop{
-  max-height: 400px;
-  min-height: 300px;
-  object-fit: cover;
-  object-position: center;
+  max-height: 848px;
+  min-height: 565px;
+  object-fit: initial;
 }
-SECTION DERECHA
+/*SECTION DERECHA*/
 section #web-right {
   height: auto;
   padding:50px;
@@ -48,3 +47,8 @@ width: 40%;
 padding:20px;
 margin: 50px;
 } 
+
+/*boton login*/
+.btn-login{
+position: -ms-page;
+}
