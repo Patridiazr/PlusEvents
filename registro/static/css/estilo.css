@@ -12,7 +12,10 @@ body {
 header {
 	width:100%;
 }
-
+/* NAVBAR */
+.plus-navbar{
+  background-color: #333 !important;
+}
 /* CARRUSEL*/
 .center-crop{
   max-height: 400px;
