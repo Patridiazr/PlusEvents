@@ -19,7 +19,7 @@ def formulario(request):
 
 #LOGIN
 def login_iniciar(request):
-    username = request.POST.get('rut', '')
+    username = request.POST.get('email', '')
     password = request.POST.get('contrasenia', '')
     user = authenticate(request, username=username, password=password)
     print(username, password)
