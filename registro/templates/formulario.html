@@ -34,30 +34,30 @@
                         </div>
                   </div>
                   <div class="col-sm">
+                      <form action="crear_U" method="POST">
                       {% csrf_token %}
                         <form>
-                                <div class="form-group" action="crear" name="form1" id="form1" method="POST">
-                                    <h3  for="name">Nombre de Usuario</h3>
-                                    <input style="text-align: center" type="text" class="form-control" name="username" required  placeholder="Ingrese su username " id="">   
-                                    <br>
-                                  <!--Nombre Completo-->
-                                  <h3  for="name">Nombre Completo</h3>
-                                  <input style="text-align: center" type="text" class="form-control" name="name" required  placeholder="Ingrese su nombre " id="">   
-                                  <br>
-                                  <label for="exampleInputEmail1">Correo Electronico</label>
-                                  <input  style="text-align: center" type="email" class="form-control" name="email" required  placeholder="Ingrese su Email" id="">
-                                  <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie más.</small>
-                                </div>
+                          <div class="form-group">
+                            <input type="text" name="username" id="text" class="form-control input-sm" placeholder="Nombre de Usuario" required>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                  <label for="exampleInputPassword1">Contraseña</label>
-                                  <input  style="text-align: center" type="password" class="form-control" name="password" required  placeholder="Ingrese Contraseña" id="pass1">
+                                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Contraseña" required>
                                 </div>
-                                <a class="text-align:center" href="{% url 'login' %}">¿Ya posees cuenta? Ingresa</a>
-                                <br>
-                                <br>
-                                <button type="submit" class="btn btn-outline-success btn-block" value="guardar"> Registrar</button>
-                                
-                              </form>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirme Contraseña" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <input type="submit" value="Registrar" class="btn btn-info btn-block">
+                    
+                    </form>
+                    </form>
                   </div>
                 </div>
               </div>   

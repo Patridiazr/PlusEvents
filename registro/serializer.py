@@ -5,5 +5,5 @@ from .models import Usuario
 class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('url','email','password','nombre')
+        fields = ('url','username','password') 
 

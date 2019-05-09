@@ -23,21 +23,23 @@ def formulario(request):
 
 
 #Crear Usuarios
-def u_crear(request):
-    email = request.POST.get('email', '')
-    password = request.POST.get('password','')
-    nombre = request.POST.get('name', '')
+def crear_U(request):
     username = request.POST.get('username')
-    usuario = Usuario(correo=email,nombre=nombre,password=password,username=username)
-    usu = Usuario(correo=email,nombre=nombre,password=password,username=username)
+    password = request.POST.get('password')
+    usuario = Usuario(username=username, password=password)
+    usu = User(username=username, password=password)
     usuario.save()
     usu.save()
-    return redirect('index')
+    return redirect('login')
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
 
 
 #LOGIN
 def login_iniciar(request):
-    username = request.POST.get('email', '')
+    username = request.POST.get('username', '')
     password = request.POST.get('contrasenia', '')
     user = authenticate(request, username=username, password=password)
     print(username, password)
@@ -59,7 +61,3 @@ def cerrar_session(request):
     return HttpResponse('<script>alert("Cierre de sesión correcto.");'+
                         ' window.location.href="/";</script>')
 
-
-class UsuarioViewSet(viewsets.ModelViewSet):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
