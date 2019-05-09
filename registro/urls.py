@@ -4,11 +4,17 @@ from . import views
 from django.urls import path,include
 from django.conf.urls import url
 from django.contrib import admin
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register(r'usuario', views.UsuarioViewSet)
 
 urlpatterns = [
     path('',views.index,name='index'),
     path('login/',views.login,name='login'),
     path('formulario/',views.formulario,name='formulario'),
+    path('registro/crear', views.u_crear, name="crear"),
     path('login/iniciar', views.login_iniciar, name="iniciar"),     
     path('cerrarsesion', views.cerrar_session, name="cerrar_session"),
+    path('api/', include(router.urls)),  
 ]

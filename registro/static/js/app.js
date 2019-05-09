@@ -70,11 +70,6 @@ messages:{
           minlength: "Minimo 6 caracteres",
           maxlength: "Maximo 10 caracteres"
         },
-pass2: { 
-  equalTo: "El password debe ser igual al anterior",
-  minlength: "Minimo 6 caracteres",
-  maxlength: "Maximo 10 caracteres"
-}
 }
 
 });

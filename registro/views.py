@@ -4,6 +4,12 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from .models import Usuario
+
+#import de api
+from rest_framework import viewsets
+from .serializer import UsuarioSerializer
 
 
 # Create your views here.
@@ -15,6 +21,18 @@ def login(request):
 def formulario(request):
     return render(request, 'formulario.html', {})
 
+
+#Crear Usuarios
+def u_crear(request):
+    email = request.POST.get('email', '')
+    password = request.POST.get('password','')
+    nombre = request.POST.get('name', '')
+    username = request.POST.get('username')
+    usuario = Usuario(correo=email,nombre=nombre,password=password,username=username)
+    usu = Usuario(correo=email,nombre=nombre,password=password,username=username)
+    usuario.save()
+    usu.save()
+    return redirect('index')
 
 
 #LOGIN
@@ -40,3 +58,8 @@ def cerrar_session(request):
     logout(request)
     return HttpResponse('<script>alert("Cierre de sesión correcto.");'+
                         ' window.location.href="/";</script>')
+
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer

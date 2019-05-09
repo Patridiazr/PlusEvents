@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-# class usuario(models.Model):
-#     email = models.charfield(max_lenght=100)
-#     contrasenia = moodels.charfield(max_lenght=18)
+class Usuario(models.Model):
+    email = models.CharField(max_length=50)
+    password = models.CharField(max_length=18)
+    nombre = models.CharField(max_length=50)
