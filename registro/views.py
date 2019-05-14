@@ -20,6 +20,14 @@ def login(request):
     return render (request,'login.html',{})
 def formulario(request):
     return render(request, 'formulario.html', {})
+def administrador(request):
+    return render(request, 'administrador.html', {})
+def contacto(request):
+    return render(request, 'contacto.html', {})
+def productos(request):
+    return render(request, 'productos.html', {})
+def calendario(request):
+    return render(request, 'calendario.html', {})
 
 
 #Crear Usuarios
@@ -32,6 +40,8 @@ def crear_U(request):
     usu.save()
     return redirect('login')
 
+
+
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
@@ -40,13 +50,13 @@ class UsuarioViewSet(viewsets.ModelViewSet):
 #LOGIN
 def login_iniciar(request):
     username = request.POST.get('username', '')
-    password = request.POST.get('contrasenia', '')
+    password = request.POST.get('password', '')
     user = authenticate(request, username=username, password=password)
     print(username, password)
     if user is not None:
         auth_login(request, user)
         return HttpResponse('<script>alert("Inicio de sesión correcto.");'+
-                            ' window.location.href="/";</script>')
+                            ' window.location.href="/login/";</script>')
     else:
         return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); ' +
                             'window.location.href="/login/";</script>')

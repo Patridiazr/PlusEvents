@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>index</title>
+    <title>Login</title>
 
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './css/flexboxgrid.css' %}">
@@ -18,7 +18,7 @@
 
 </head>
 <body>
-  <form id="LoginForm"  method="POST" class="form-signin" action="{% url 'iniciar' %}">
+  <form id="LoginForm"   method="POST" class="form-signin" action="{% url 'iniciar' %}">
     {% csrf_token %}
     <div class="container">
             <div class="row">
@@ -31,8 +31,8 @@
                                             </div>       
                                             <form id="Login">
                                                     <div class="form-group">
-                                                            <label for="inputRut"  class="sr-only">email</label>
-                                                            <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Email" required autofocus>
+                                                            <label for="inputEmail"  class="sr-only">email</label>
+                                                            <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Username" required autofocus>
                                                     </div>
                                                     <div class="form-group">
                                                             <label for="inputPassword" class="sr-only">Contraseña</label>
@@ -41,7 +41,7 @@
                                                     <div class="forgot"  >
                                                             <a class="text-align:center" href="{% url 'formulario' %}">¿Aun no tienes cuenta? Registrate</a>  
                                                     </div>
-                                                    <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
+                                                    <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="valida()">Iniciar Sesión</button>
                                             </form>
                           
 
