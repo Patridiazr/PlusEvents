@@ -52,11 +52,10 @@ def login_iniciar(request):
     username = request.POST.get('username', '')
     password = request.POST.get('password', '')
     user = authenticate(request, username=username, password=password)
-    print(username, password)
     if user is not None:
         auth_login(request, user)
         return HttpResponse('<script>alert("Inicio de sesión correcto.");'+
-                            ' window.location.href="/login/";</script>')
+                            ' window.location.href="/administrador/";</script>')
     else:
         return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); ' +
                             'window.location.href="/login/";</script>')
@@ -69,5 +68,5 @@ def logout_view(request):
 def cerrar_session(request):
     logout(request)
     return HttpResponse('<script>alert("Cierre de sesión correcto.");'+
-                        ' window.location.href="/";</script>')
+                        ' window.location.href="/login/";</script>')
 

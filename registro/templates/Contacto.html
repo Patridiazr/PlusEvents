@@ -39,7 +39,7 @@
             </li>
             {% if user.is_superuser %}
             <li class="nav-item active">
-                <a class="nav-link disabled" href="#">Administrador</a>
+                <a class="nav-link disabled" href="{% url 'administrador' %}">Administrador</a>
               </li>
               {% endif %}
             <li>

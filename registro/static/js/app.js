@@ -94,5 +94,3 @@ if ('serviceWorker' in navigator) {
 var contador = 1;
 
 
-/*validacion de Login*/
-  

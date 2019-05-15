@@ -60,3 +60,7 @@ position: -ms-page;
 .footer{
   background-color: #ba68c8;
 }
+
+.carta {
+  margin-left: 20px !important;
+}
