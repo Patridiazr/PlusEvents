@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './css/flexboxgrid.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static './js/jquery-3.3.1.js' %}">
     <link rel="stylesheet" href="{% static './js/popper.js' %}">
     <link rel="stylesheet" href="{% static './js/j.query.validate.js' %}">
@@ -36,11 +34,11 @@
               <a class="nav-link" href="{% url 'calendario' %}">Calendario</a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link disabled" href="{% url 'contacto' %}">Contacto</a>
+              <a class="nav-link " href="{% url 'contacto' %}">Contacto</a>
             </li>
             {% if user.is_superuser %}
             <li class="nav-item active">
-                <a class="nav-link disabled" href="{% url 'administrador' %}">Administrador</a>
+                <a class="nav-link " href="{% url 'administrador' %}">Administrador</a>
               </li>
               {% endif %}
             <li>
@@ -80,19 +78,15 @@
       <div class="col-md-6 mt-md-0 mt-3">
 
         <!-- Content -->
-        <h5 class="text-uppercase">Plus Events</h5>
+        <h5 class="text-white">Plus Events</h5>
         <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
 
       </div>
       <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none pb-3">
-
-      <!-- Grid column -->
       <div class="col-md-3 mb-md-0 mb-3">
 
         <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
+        <h5 class="text-white">Links</h5>
 
         <ul class="list-unstyled">
           <li>
@@ -110,7 +104,7 @@
       </div>
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019
+  <div class="footer-copyright text-center ">© 2019
   </div>
   <!-- Copyright -->
 
