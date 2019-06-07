@@ -7,28 +7,22 @@
     <title>Productos</title>
 
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static './css/flexboxgrid.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static './js/jquery-3.3.1.js' %}">
-    <link rel="stylesheet" href="{% static './js/popper.js' %}">
-    <link rel="stylesheet" href="{% static './js/j.query.validate.js' %}">
-    <link rel="stylesheet" href="{% static './js/app.js' %}">
     <link rel="stylesheet" href="{% static './css/estilo.css' %}">
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary plus-navbar">
-        <a class="navbar-brand" href="{% url 'index' %}">LOGO</a>
+      <a class="navbar-brand" ><img src="../static/imagenes/EVENT PLUS.png" height="70px" width="150px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'productos' %}">Productos</a>
+              <a class="nav-link" href="{% url 'productos' %}">Eventos</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'calendario' %}">Calendario</a>
@@ -65,50 +59,18 @@
         </div>
         
         
-<!-- Footer -->
-<footer class="page-footer pt-4 footer">
+        <footer class="footer" >
 
-  <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
+          <!-- Content -->
+          <h5 class="text-uppercase">Plus Events</h5>
+          <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
+        <div class="footer-copyright text-center py-3">© 2019 </div>
+        
+        </footer>
 
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-        <h5 class="text-white">Plus Events</h5>
-        <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
-
-      </div>
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
-
-        <!-- Links -->
-        <h5 class="text-white">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#">Quienes Somos</a>
-          </li>
-          <li>
-            <a href="{% url 'productos' %}">Servicios</a>
-          </li>
-          <li>
-            <a href="#!">plusevent@gmail.com</a>
-          </li>
-          
-        </ul>
-
-      </div>
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center ">© 2019
-  </div>
-  <!-- Copyright -->
-
-</footer>
-
+<script src="{% static './js/jquery-3.3.1.js' %}"></script>
+<script src="{% static './js/popper.js' %}"></script>
+<!-- <script src="{% static './js/j.query.validate.js' %}"></script> -->
+<script src="{% static './js/app.js' %}"></script>
 </body>
 </html>

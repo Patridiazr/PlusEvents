@@ -7,27 +7,22 @@
     <title>Contacto</title>
 
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static './css/flexboxgrid.css' %}">
-    <link rel="stylesheet" href="{% static './js/jquery-3.3.1.js' %}">
-    <link rel="stylesheet" href="{% static './js/popper.js' %}">
-    <link rel="stylesheet" href="{% static './js/j.query.validate.js' %}">
-    <link rel="stylesheet" href="{% static './js/app.js' %}">
     <link rel="stylesheet" href="{% static './css/estilo.css' %}">
 
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary plus-navbar">
-        <a class="navbar-brand" href="{% url 'index' %}">LOGO</a>
+      <a class="navbar-brand" ><img src="../static/imagenes/EVENT PLUS.png" height="70px" width="150px"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'index' %}">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'productos' %}">Productos</a>
+              <a class="nav-link" href="{% url 'productos' %}">Eventos</a>
             </li>
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'calendario' %}">Calendario</a>
@@ -50,8 +45,11 @@
            </li>
           </ul>
         </div>
-      </nav>    
-      <div class="container">
+      </nav> 
+      
+      <!-- CONTACTO  -->
+
+      <div class="container contacto">
         <div class="row">
             <div class="col-md-12">
                 <div class="well well-sm">
@@ -62,40 +60,40 @@
                             <div class="form-group">
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                                 <div class="col-md-8">
-                                    <input id="fname" name="name" type="text" placeholder="First Name" class="form-control">
+                                    <input id="fname" name="name" type="text" placeholder="Nombres" class="form-control" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                                 <div class="col-md-8">
-                                    <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
+                                    <input id="lname" name="name" type="text" placeholder="Apellidos" class="form-control" required>
                                 </div>
                             </div>
     
                             <div class="form-group">
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                                 <div class="col-md-8">
-                                    <input id="email" name="email" type="text" placeholder="Email Address" class="form-control">
+                                    <input id="email" name="email" type="text" placeholder="Correo Electronico" class="form-control" required>
                                 </div>
                             </div>
     
                             <div class="form-group">
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
                                 <div class="col-md-8">
-                                    <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
+                                    <input id="phone" name="phone" type="text" placeholder="Telefono" class="form-control">
                                 </div>
                             </div>
     
                             <div class="form-group">
                                 <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                                 <div class="col-md-8">
-                                    <textarea class="form-control" id="message" name="message" placeholder="Enter your massage for us here. We will get back to you within 2 business days." rows="7"></textarea>
+                                    <textarea class="form-control" id="message" name="message" placeholder="Envianos tus dudasy te responderemos a la brevedad." rows="7" required></textarea>
                                 </div>
                             </div>
     
                             <div class="form-group">
                                 <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
                                 </div>
                             </div>
                         </fieldset>
@@ -104,56 +102,21 @@
             </div>
         </div>
     </div>
-      <br><br><br>
+      <br><br><br><br><br><br>
 
 
-<!-- Footer -->
-<footer class="page-footer pt-4 footer">
-
-  <!-- Footer Links -->
-  <div class="container-fluid text-center text-md-left">
-
-    <!-- Grid row -->
-    <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
+      <footer class="footer" >
 
         <!-- Content -->
         <h5 class="text-uppercase">Plus Events</h5>
         <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
+      <div class="footer-copyright text-center py-3">© 2019 </div>
+      
+      </footer>
 
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none pb-3">
-
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
-
-        <!-- Links -->
-        <h5 class="text-uppercase">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#">Quienes Somos</a>
-          </li>
-          <li>
-            <a href="{% url 'productos' %}">Servicios</a>
-          </li>
-          <li>
-            <a href="#!">plusevent@gmail.com</a>
-          </li>
-          
-        </ul>
-
-      </div>
-
-  <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2019
-  </div>
-  <!-- Copyright -->
-
-</footer>
+<script src="{% static './js/jquery-3.3.1.js' %}"></script>
+<script src="{% static './js/popper.js' %}"></script>
+<!-- <script src="{% static './js/j.query.validate.js' %}"></script> -->
+<script src="{% static './js/app.js' %}"></script>
 </body>
 </html>

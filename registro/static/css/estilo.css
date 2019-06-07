@@ -4,9 +4,13 @@
 	padding:0;
 }
 
-body {
-	background:#FFFFFA;
+body{
+  min-height: 100%;
+  top: 0;
+  margin:0;
+  padding:0;
 }
+
 
 header {
 	width:100%;
@@ -14,11 +18,15 @@ header {
 /* NAVBAR */
 .plus-navbar{
   background-color: #9242f4 !important;
+  align-content: right !important;
+  position:  static !important;
+
 }
+
 /* BARRA DE NAVEGACION */
 .nav-link{
   float: right !important;
-  font-size: 20px !important;
+  font-size: 18px !important;
 }
 /* CARRUSEL*/
 .center-crop{
@@ -26,39 +34,28 @@ header {
   min-height: 565px;
   object-fit: initial;
 }
-/*SECTION DERECHA*/
-section #web-right {
-  height: auto;
-  padding:50px;
-}
-/* SECTION DERECHA */
-#web-right .col-md-12 {
-float: right;
-width: 40%;
-padding:20px;
-margin: 50px;
-} 
 
-/* SECTION IZQUIERDA */
-section #web-left {
-height: auto;
-padding:50px;
-}
-/* SECTION IZQUIERDA */
-#web-left .col-md-12 {
-float: left;
-width: 40%;
-padding:20px;
-margin: 50px;
-} 
 
 /*boton login*/
 .btn-login{
 position: -ms-page;
 }
 
-.footer{
-  background-color: #ba68c8;
+footer,
+section#main,
+body{
+    width: 100%;
+    position: absolute;
+}
+
+section#main{
+    min-height: 100%;
+}
+
+footer{
+    background-color: #ba68c8 !important;
+    text-align: center;
+    bottom: 0;
 }
 
 .carta {
@@ -76,3 +73,4 @@ position: -ms-page;
   font-size: 35px;
   color: #36A0FF;
 }
+
