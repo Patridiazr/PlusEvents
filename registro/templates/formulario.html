@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Formulaio</title>
+    <title>Formulario</title>
 
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './css/formulario.css' %}">
@@ -16,7 +16,6 @@
                   <div class="col-sm">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                                 <ol class="carousel-indicators">
-                                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                                 </ol>
                         </div>
                                 <div class="carousel-inner">
@@ -25,8 +24,8 @@
                                     <div class="carousel-caption d-none d-md-block"></div>
                                 </div>
                         </div>
-                  </div>
-                  <div class="col-sm">
+                  </div><br><br>
+                  <div class="container col-sm formulario">
                       <form action="crear_U" method="POST">
                       {% csrf_token %}
                         <form>
@@ -48,7 +47,9 @@
                         </div>
                         
                         <input type="submit" value="Registrar" class="btn btn-info btn-block">
-                    
+                        <div class="forgot">
+                        <a class="text-align:center btnindex" href="{% url 'login' %}">¿Tienes cuenta? Inicia Sesion</a>
+                        </div>
                     </form>
                     </form>
                   </div>

@@ -1,6 +1,20 @@
+body{
+    background-color: teal;
+}
 .container{
     margin-top: 5%;
 }
 .container-fluid{
     padding-left: 0%;
 }
+.btnindex{
+    color: black
+}
+.forgot a {
+    color:black;
+    font-size: 18px;
+    text-decoration: underline;
+  }
+  .forgot {
+    text-align: left; margin-bottom:30px;
+  }
