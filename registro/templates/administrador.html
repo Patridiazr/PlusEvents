@@ -24,9 +24,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'productos' %}">Eventos</a>
             </li>
-            <li class="nav-item active">
+            <!-- <li class="nav-item active">
               <a class="nav-link" href="{% url 'calendario' %}">Calendario</a>
-            </li>
+            </li> -->
             <li class="nav-item active">
               <a class="nav-link disabled" href="{% url 'contacto' %}">Contacto</a>
             </li>
@@ -54,7 +54,7 @@
 
 <!-- <button type="button" onclick="usu()">UsuariO  </button> -->
 
-      <!--USUARIOS-->
+      <!-- LISTA DE USUARIOS-->
     <div class="container">
         <table class="table">
           <thead>
@@ -70,7 +70,7 @@
             {% for u in usuario %}
             <tr>
               <td>{{u.id}}</td>
-              <td>{{u.email}}</td>
+              <td>{{u.username}}</td>
               <td>
                 <a class="btn btn-info " href="">Editar</a>
                 <a class="btn btn-danger" href="">Eliminar</a>
