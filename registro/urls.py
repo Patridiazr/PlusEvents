@@ -8,6 +8,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'usuario', views.UsuarioViewSet)
+router.register(r'servicio', views.ServicioViewSet)
 
 urlpatterns = [
     path('',views.index,name='index'),
@@ -15,6 +16,8 @@ urlpatterns = [
     path('formulario/',views.formulario,name='formulario'),
     path('formulario/crear_U',views.crear_U, name="crear_U"),
     path('administrador/',views.administrador,name='administrador'),
+    path('regservicio/',views.regservicio,name='regservicio'),
+    path('regservicio/crear_S',views.crear_S, name="crear_S"),
     path('calendario/',views.calendario,name='calendario'), 
     path('productos/',views.productos,name='productos'),
     path('contacto/',views.contacto,name='contacto'),

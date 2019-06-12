@@ -4,12 +4,12 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login as auth_login
 from django.contrib.auth.decorators import login_required
-from rest_framework import viewsets
-from .models import Usuario
+from .models import Usuario, Servicio
 
 #import de api
 from rest_framework import viewsets
 from .serializer import UsuarioSerializer
+from .serializer import ServicioSerializer
 
 
 # Create your views here.
@@ -21,37 +21,46 @@ def login(request):
 def formulario(request):
     return render(request, 'formulario.html', {})
 def administrador(request):
-    return render(request, 'administrador.html', {})
+    usuario = Usuario.objects.all()
+    contexto = {'usuario':usuario}
+    return render(request, 'administrador.html',contexto)
 def contacto(request):
     return render(request, 'contacto.html', {})
 def productos(request):
-    return render(request, 'productos.html', {})
+    servicio = Servicio.objects.all()
+    contexto = {'servicio':servicio}
+    return render(request, 'productos.html',contexto)
 def calendario(request):
     return render(request, 'calendario.html', {})
-
+def regservicio(request):
+    return render(request, 'regservicio.html',)
+    
 
 #Crear Usuarios
 def crear_U(request):
-    username = request.POST.get('username')
-    password = request.POST.get('password')
-    usuario = Usuario(username=username, password=password)
-    usu = User(username=username, password=password)
+    email = request.POST.get('email','')
+    password = request.POST.get('password','')
+    usuario = Usuario(email=email, password=password)
+    usu = User(email=email, password=password)
     usuario.save()
     usu.save()
     return redirect('login')
 
 
-
-class UsuarioViewSet(viewsets.ModelViewSet):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
-
+#CREAR SERVICIOS
+def crear_S(request):
+    nombre = request.POST.get('nombre','')
+    descripcion = request.POST.get('descripcion','')
+    servicio = Servicio(nombre=nombre, descripcion=descripcion)
+    servicio.save()
+    # HttpResponse('<h4>Servicio agregado con exito</>')
+    return redirect('regservicio')
 
 #LOGIN
 def login_iniciar(request):
-    username = request.POST.get('username', '')
+    email = request.POST.get('email', '')
     password = request.POST.get('password', '')
-    user = authenticate(request, username=username, password=password)
+    user = authenticate(request, email=email, password=password)
     if user is not None:
         auth_login(request, user)
         return HttpResponse('<script>alert("Inicio de sesión correcto.");'+
@@ -70,3 +79,13 @@ def cerrar_session(request):
     return HttpResponse('<script>alert("Cierre de sesión correcto.");'+
                         ' window.location.href="/login/";</script>')
 
+#Serialyzer
+
+class UsuarioViewSet(viewsets.ModelViewSet):
+    queryset = Usuario.objects.all()
+    serializer_class = UsuarioSerializer
+
+    
+class ServicioViewSet(viewsets.ModelViewSet):
+    queryset = Servicio.objects.all()
+    serializer_class = ServicioSerializer

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calendario</title>
+    <title>Registro-Servicio</title>
 
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './css/estilo.css' %}">
@@ -46,19 +46,50 @@
            </li>
           </ul>
         </div>
-      </nav>    
-<br>
-<br>
-<br>
-  
-<footer class="footer" >
+      </nav> 
+      
+      <!-- CONTACTO  -->
 
-  <!-- Content -->
-  <h5 class="text-uppercase">Plus Events</h5>
-  <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
-<div class="footer-copyright text-center py-3">© 2019 </div>
+      <div class="container contacto">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-5">
+                <div class="well well-sm">
+                    <form  action="crear_S" method="POST">
+                        {% csrf_token %}
+                        <fieldset>
+                            <legend class="header text-center">Registo de Servicios</legend>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                    <input name="nombre" id="nombre" type="text" placeholder="Nombre Evento" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                    <textarea class="form-control" id="descripcion " name="descripcion" placeholder="Descripcion del evento a ingresar." rows="5" required></textarea>
+                            </div>
+    
+                            <div class="form-group">
+                                <div class="col-md-12 text-center">
+                                    <input type="submit" value="Registrar" class="btn btn-info btn-block">
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div><div class="col-md-3"></div>
+        </div>
+    </div>
+      <br><br><br><br><br><br>
 
-</footer>
+
+      <footer class="footer" >
+
+        <!-- Content -->
+        <h5 class="text-uppercase">Plus Events</h5>
+        <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
+      <div class="footer-copyright text-center py-3">© 2019 </div>
+      
+      </footer>
 
 <script src="{% static './js/jquery-3.3.1.js' %}"></script>
 <script src="{% static './js/popper.js' %}"></script>

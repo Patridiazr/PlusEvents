@@ -32,7 +32,8 @@
             </li>
             {% if user.is_superuser %}
             <li class="nav-item active">
-                <a class="nav-link " href="{% url 'administrador' %}">Administrador</a>
+                <a class="nav-link disabled" href="{% url 'administrador' %}">Administrador</a>
+                <a class="nav-link "  href="{% url 'regservicio' %}">Ingresar Servicio</a>
               </li>
               {% endif %}
             <li>
@@ -49,23 +50,26 @@
       <br>    
 
       <!--Carta de productos--> 
-      <div class="card text-white bg-info mb-3 carta" style="max-width: 18rem;">
-          <div class="card-header">Coorportivos</div>
+      {% if servicio %}
+      {% for s in servicio %}
+      <div class="card text-white bg-info mb-2 carta" style="max-width: 18rem;">
+          <div class="card-header">{{s.nombre}}</div>
           <div class="card-body">
-            
-            <p class="card-text">Evento para empresas las cuales deseen contar con nuestros servicios.</p>
-            <a href="#" class="btn btn-primary">Mas informacion</a>
+            <p class="card-text">{{s.descripcion}}</p>
           </div>
         </div>
-        
+      {% endfor %}
+      {% else %}
+        <h4>No existen registros de servicio</h4>
+      {% endif %}
+
+
         
         <footer class="footer" >
-
           <!-- Content -->
           <h5 class="text-uppercase">Plus Events</h5>
           <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
         <div class="footer-copyright text-center py-3">© 2019 </div>
-        
         </footer>
 
 <script src="{% static './js/jquery-3.3.1.js' %}"></script>
