@@ -60,7 +60,9 @@ footer{
 }
 
 .carta {
-  margin-left: 20px !important;
+  margin: 0 auto;
+  float: none;
+
 }
 
 /* CONTACTO */

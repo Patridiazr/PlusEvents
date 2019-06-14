@@ -51,17 +51,25 @@
 
       <!--Carta de productos--> 
       {% if servicio %}
+      <div class="container">
+          <div class="row">
       {% for s in servicio %}
-      <div class="card text-white bg-info mb-2 carta" style="max-width: 18rem;">
-          <div class="card-header">{{s.nombre}}</div>
-          <div class="card-body">
-            <p class="card-text">{{s.descripcion}}</p>
-          </div>
-        </div>
+              <div class="col-md-4">   
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">{{s.nombre}}</h5>
+                    <p class="card-text">{{s.descripcion}}</p>
+                    <a href="#" class="btn btn-primary">Contratar</a>
+                  </div>
+                </div>
+              </div>
       {% endfor %}
+    </div>
+  </div>
       {% else %}
         <h4>No existen registros de servicio</h4>
       {% endif %}
+      <br>
 
 
         
