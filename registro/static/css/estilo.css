@@ -56,10 +56,13 @@ footer{
     background-color: #ba68c8 !important;
     text-align: center;
     bottom: 0;
+    position: relative;
 }
 
 .carta {
-  margin-left: 20px !important;
+  margin: 0 auto;
+  float: none;
+
 }
 
 /* CONTACTO */
