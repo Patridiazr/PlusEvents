@@ -5,7 +5,7 @@ from .models import Usuario,Servicio
 class UsuarioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Usuario
-        fields = ('url','email','password') 
+        fields = ('url','username','password') 
 
 class ServicioSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

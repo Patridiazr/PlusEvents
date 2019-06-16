@@ -38,10 +38,10 @@ def regservicio(request):
 
 #Crear Usuarios
 def crear_U(request):
-    email = request.POST.get('email','')
+    username = request.POST.get('username','')
     password = request.POST.get('password','')
-    usuario = Usuario(email=email, password=password)
-    usu = User(email=email, password=password)
+    usuario = Usuario(username=username, password=password)
+    usu = User(username=username, password=password)
     usuario.save()
     usu.save()
     return redirect('login')
@@ -58,9 +58,9 @@ def crear_S(request):
 
 #LOGIN
 def login_iniciar(request):
-    email = request.POST.get('email', '')
+    username = request.POST.get('username', '')
     password = request.POST.get('password', '')
-    user = authenticate(request, email=email, password=password)
+    user = authenticate(request, username=username, password=password)
     if user is not None:
         auth_login(request, user)
         return HttpResponse('<script>alert("Inicio de sesión correcto.");'+
