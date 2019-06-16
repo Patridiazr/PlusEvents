@@ -24,9 +24,9 @@
             <li class="nav-item active">
               <a class="nav-link" href="{% url 'productos' %}">Eventos</a>
             </li>
-            <!-- <li class="nav-item active">
+            <li class="nav-item active">
               <a class="nav-link" href="{% url 'calendario' %}">Calendario</a>
-            </li> -->
+            </li>
             <li class="nav-item active">
               <a class="nav-link " href="{% url 'contacto' %}">Contacto</a>
             </li>
@@ -51,29 +51,21 @@
 
       <!--Carta de productos--> 
       {% if servicio %}
-      <div class="container">
-          <div class="row">
       {% for s in servicio %}
-              <div class="col-md-4">   
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="card-title">{{s.nombre}}</h5>
-                    <p class="card-text">{{s.descripcion}}</p>
-                    <a href="#" class="btn btn-primary">Contratar</a>
-                  </div>
-                </div>
-              </div>
+      <div class="card text-white bg-info mb-2 carta" style="max-width: 18rem;">
+          <div class="card-header">{{s.nombre}}</div>
+          <div class="card-body">
+            <p class="card-text">{{s.descripcion}}</p>
+          </div>
+        </div>
       {% endfor %}
-    </div>
-  </div>
       {% else %}
         <h4>No existen registros de servicio</h4>
       {% endif %}
-      <br>
 
 
         
-        <footer class="footer " >
+        <footer class="footer" >
           <!-- Content -->
           <h5 class="text-uppercase">Plus Events</h5>
           <p>Nos enfocamos cada dia en entregar el mejor servicio.</p>
