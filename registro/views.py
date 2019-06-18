@@ -22,7 +22,8 @@ def formulario(request):
     return render(request, 'formulario.html', {})
 def administrador(request):
     usuario = Usuario.objects.all()
-    contexto = {'usuario':usuario}
+    servicio = Servicio.objects.all()
+    contexto = {'usuario':usuario,'servicio':servicio}
     return render(request, 'administrador.html',contexto)
 def contacto(request):
     return render(request, 'contacto.html', {})
@@ -68,6 +69,14 @@ def login_iniciar(request):
     else:
         return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); ' +
                             'window.location.href="/login/";</script>')
+
+#Eliminar usuario
+def eliminar_u(request,id_usu):
+    u = Usuario.objects.get(id=id_usu)
+    u.delete()
+    return redirect('administrador')
+
+
 
 def logout_view(request):
     logout(request)

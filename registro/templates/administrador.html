@@ -50,11 +50,8 @@
       </nav>    
 <br>
 <br>
-
-
-
-
       <!-- LISTA DE USUARIOS-->
+    <H2 style="text-align: center">Lista de usuarios</H2>
     <div class="container">
         <table class="table">
           <thead>
@@ -72,8 +69,8 @@
               <td>{{u.id}}</td>
               <td>{{u.username}}</td>
               <td>
-                <a class="btn btn-info " href="">Editar</a>
-                <a class="btn btn-danger" href="">Eliminar</a>
+                <a class="btn btn-info " href="#editar_u{{u.id}}}">Editar</a>
+                <a class="btn btn-danger" href="#eliminar_u">Eliminar</a>
               </td>
             {% endfor %}
             {% else %}
@@ -82,6 +79,38 @@
           </tbody>
         </table>
         </div>
+
+        <!-- LISTA DE SERVICIOS-->
+    <H2 style="text-align: center">Lista de servicios</H2>
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre de servicios</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          {% if servicio %}
+          {% for s in servicio %}
+          <tr>
+            <td>{{s.id}}</td>
+            <td>{{s.nombre}}</td>
+            <td>{{s.descripcion}}</td>
+            <td>
+              <a class="btn btn-info " href="">Editar</a>
+              <a class="btn btn-danger" href="">Eliminar</a>
+            </td>
+          {% endfor %}
+          {% else %}
+          <h4>No existen servicios</h4>
+          {% endif %}
+        </tbody>
+      </table>
+      </div>
 
     <script src="{% static './js/jquery-3.3.1.js' %}"></script>
     <script src="{% static './js/popper.js' %}"></script>
