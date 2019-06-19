@@ -9,3 +9,4 @@ class Usuario(models.Model):
 class Servicio(models.Model):
     nombre = models.CharField(max_length = 100)
     descripcion = models.CharField(max_length = 100)
+    precio = models.IntegerField(default = "0")

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Administrador</title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static './css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static './css/estilo.css' %}">
 
@@ -53,7 +54,7 @@
       <!-- LISTA DE USUARIOS-->
     <H2 style="text-align: center">Lista de usuarios</H2>
     <div class="container">
-        <table class="table">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th scope="col">#</th>
@@ -70,25 +71,52 @@
               <td>{{u.username}}</td>
               <td>
                 <a class="btn btn-info " href="#editar_u{{u.id}}}">Editar</a>
-                <a class="btn btn-danger" href="#eliminar_u">Eliminar</a>
+                <a class="btn btn-danger" data-toggle="modal" href="#eliminar_u{{u.id}}">Eliminar</a>
               </td>
+              <div class="modal fade" id="eliminar_u{{u.id}}" tabindex="-1" role="dialog"  aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form action="eliminar_u/{{u.id}}" method="POST" >
+                        {% csrf_token %}
+                        <h4>¿Esta seguro de eliminar este usuario?</h4>
+                        <div class="modal-footer">
+                            <button class="btn btn-danger"  type="submit">Si, eliminar</button>
+                            <a class="btn btn-light" href="{% url 'administrador' %}">Cancelar</a>    
+                        </div>                      
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </tr>
+              </div>
+              
             {% endfor %}
             {% else %}
             <h4>No existen usuarios</h4>
             {% endif %}
           </tbody>
         </table>
-        </div>
+       
 
         <!-- LISTA DE SERVICIOS-->
     <H2 style="text-align: center">Lista de servicios</H2>
     <div class="container">
-      <table class="table">
+      <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Nombre de servicios</th>
             <th scope="col">Descripcion</th>
+            <th scope="col">Valor</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -100,22 +128,82 @@
             <td>{{s.id}}</td>
             <td>{{s.nombre}}</td>
             <td>{{s.descripcion}}</td>
-            <td>
-              <a class="btn btn-info " href="">Editar</a>
-              <a class="btn btn-danger" href="">Eliminar</a>
+            <td>{{s.precio}}</td>
+            <td >
+              <button class="btn btn-info " data-toggle="modal" href="#editar_s{{s.id}}">Editar</button><br><br><br>
+              <button class="btn btn-danger" data-toggle="modal" data-target="#eliminar_s{{s.id}}">Eliminar</button>
             </td>
+            <!-- MODAL EDITAR SERVICIO -->
+            <div class="modal fade" id="editar_s{{s.id}}" tabindex="-1" role="dialog"  aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Editor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-group" action="editar_s/{{s.id}}" method="POST" >
+                      {% csrf_token %}
+                      <label for="nombre"><b>Nombre</b></label>
+                      <input class="form-control" type="text" name="nombre" id="nombre" value="{{r.nombre}}" >
+                      <label for="descripcion"><b>Descripcion</b></label>
+                      <input class="form-control" type="text" name="descripcion" id="descripcion" value="{{r.descripcion}}">
+                      <label for="precio"><b>Precio</b></label>
+                      <input class="form-control" type="number" name="precio" value="{{r.precio}}">
+                      <div class="modal-footer">
+                        <button class="btn btn-danger"  type="submit">Editar</button>
+                        <a class="btn btn-default" href="{% url 'administrador' %}">Cancelar</a>  
+                      </div>       
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </tr>
+            </div>
+
+            <!-- MODAL ELIMINAR SERVICIO -->
+            <div class="modal fade" id="eliminar_s{{s.id}}" tabindex="-1" role="dialog"  aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirmacion</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form-group" action="eliminar_s/{{s.id}}" method="POST" >
+                      {% csrf_token %}
+                      <h4>¿Esta seguro de eliminar este servicio?</h4>
+                      <div class="modal-footer">
+                      <button class="btn btn-danger"  type="submit">Si, eliminar</button>
+                      <a class="btn btn-light" href="{% url 'administrador' %}">Cancelar</a>
+                      </div>                   
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </tr>
+            </div>
           {% endfor %}
           {% else %}
           <h4>No existen servicios</h4>
           {% endif %}
         </tbody>
       </table>
-      </div>
 
+   
     <script src="{% static './js/jquery-3.3.1.js' %}"></script>
     <script src="{% static './js/popper.js' %}"></script>
     <!-- <script src="{% static './js/j.query.validate.js' %}"></script> -->
     <script src="{% static './js/app.js' %}"></script>
+    <script src="{% static './js/bootstrap.js' %}"></script>
 
 </body>
 </html>

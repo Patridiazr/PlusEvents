@@ -47,15 +47,42 @@ def crear_U(request):
     usu.save()
     return redirect('login')
 
+#Eliminar usuario
+def eliminar_u(request,id_usu):
+    u = Usuario.objects.get(id=id_usu)
+    u.delete()
+    return redirect('administrador')
+
 
 #CREAR SERVICIOS
 def crear_S(request):
     nombre = request.POST.get('nombre','')
     descripcion = request.POST.get('descripcion','')
-    servicio = Servicio(nombre=nombre, descripcion=descripcion)
+    precio = request.POST.get('precio','')
+    servicio = Servicio(nombre=nombre, descripcion=descripcion, precio=precio)
     servicio.save()
     # HttpResponse('<h4>Servicio agregado con exito</>')
     return redirect('regservicio')
+
+#Eliminar servicio
+def eliminar_s(request,id_servicio):
+    s = Servicio.objects.get(id=id_servicio)
+    s.delete()
+    return redirect('administrador')
+
+#Editar Servicio
+def editar_s(request,id_servicio):
+    servicio = Servicio.objects.get(pk=id_servicio)
+    nombre = request.POST.get('nombre')
+    descripcion = request.POST.get('descripcion')
+    precio = request.POST.get('precio')
+    servicio.nombre = nombre
+    servicio.descripcion = descripcion
+    servicio.precio = precio
+    servicio.save()
+    return redirect(administrador)
+
+
 
 #LOGIN
 def login_iniciar(request):
@@ -70,11 +97,6 @@ def login_iniciar(request):
         return HttpResponse('<script>alert("Ocurrió un error, intenta nuevamente..."); ' +
                             'window.location.href="/login/";</script>')
 
-#Eliminar usuario
-def eliminar_u(request,id_usu):
-    u = Usuario.objects.get(id=id_usu)
-    u.delete()
-    return redirect('administrador')
 
 
 
